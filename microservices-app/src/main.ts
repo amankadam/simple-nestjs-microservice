@@ -1,11 +1,23 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { Transport } from '@nestjs/microservices';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+import { MicroserviceOptions, Transport } from "@nestjs/microservices";
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice(AppModule, {
-    transport: Transport.TCP,
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        brokers: [
+          "b-3.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9094",
+          "b-2.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9094",
+          "b-1.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9094",
+        ],
+      },
+      consumer: {
+        groupId: "hero-consumer",
+      },
+    },
   });
-  await app.listen(() => console.log('Microservice is listening'));
+  await app.listen(() => console.log("Microservice is listening"));
 }
 bootstrap();

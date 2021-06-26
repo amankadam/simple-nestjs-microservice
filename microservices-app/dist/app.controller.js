@@ -13,15 +13,16 @@ const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
 let AppController = class AppController {
     constructor() { }
-    async handleMessagePrinted(data) {
-        console.log(data.text);
+    handleMessagePrinted(data) {
+        console.log(data);
+        return "Hello World printed Aman";
     }
 };
 __decorate([
-    microservices_1.EventPattern('message_printed'),
+    microservices_1.MessagePattern("message_printed"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
+    __metadata("design:returntype", String)
 ], AppController.prototype, "handleMessagePrinted", null);
 AppController = __decorate([
     common_1.Controller(),

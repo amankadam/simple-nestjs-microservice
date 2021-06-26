@@ -1,7 +1,7 @@
-import { ClientProxy } from '@nestjs/microservices';
+import { ClientKafka } from '@nestjs/microservices';
 export declare class AppController {
     private readonly client;
-    constructor(client: ClientProxy);
-    onApplicationBootstrap(): Promise<void>;
-    getHello(): string;
+    constructor(client: ClientKafka);
+    onModuleInit(): Promise<void>;
+    getHello(): import("rxjs").Observable<string>;
 }

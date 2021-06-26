@@ -19,12 +19,17 @@ let AppController = class AppController {
     constructor(client) {
         this.client = client;
     }
-    async onApplicationBootstrap() {
-        await this.client.connect();
+    async onModuleInit() {
+        try {
+            this.client.subscribeToResponseOf('message_printed');
+            await this.client.connect();
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
     getHello() {
-        this.client.emit('message_printed', new message_event_1.Message('Hello World'));
-        return 'Hello World printed';
+        return this.client.send('message_printed', new message_event_1.Message('Hello World'));
     }
 };
 __decorate([
@@ -36,7 +41,7 @@ __decorate([
 AppController = __decorate([
     common_1.Controller(),
     __param(0, common_1.Inject('HELLO_SERVICE')),
-    __metadata("design:paramtypes", [microservices_1.ClientProxy])
+    __metadata("design:paramtypes", [microservices_1.ClientKafka])
 ], AppController);
 exports.AppController = AppController;
 //# sourceMappingURL=app.controller.js.map
