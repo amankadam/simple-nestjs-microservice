@@ -14,9 +14,9 @@ import { Transport, ClientsModule } from "@nestjs/microservices";
             ssl: true,
             clientId: "hero",
             brokers: [
-              "ip-10-0-2-180.ec2.internal:9094",
-              "ip-10-0-0-138.ec2.internal:9094",
-              "ip-10-0-1-117.ec2.internal:9094",
+              "localhost:9094",
+              "localhost:9094",
+              "localhost:9094",
             ],
           },
           consumer: {
