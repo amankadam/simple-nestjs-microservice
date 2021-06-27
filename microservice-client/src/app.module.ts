@@ -11,11 +11,12 @@ import { Transport, ClientsModule } from "@nestjs/microservices";
         transport: Transport.KAFKA,
         options: {
           client: {
+            ssl: true,
             clientId: "hero",
             brokers: [
-              "b-3.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
-              "b-2.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
-              "b-1.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
+              "b-3.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9094",
+              "b-2.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9094",
+              "b-1.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9094",
             ],
           },
           consumer: {
