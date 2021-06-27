@@ -10,9 +10,9 @@ async function bootstrap() {
         ssl: true,
         clientId: "hero",
         brokers: [
-          "b-3.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
-          "b-2.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
-          "b-1.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
+          "ip-10-0-2-180.ec2.internal:9094",
+          "ip-10-0-0-138.ec2.internal:9094",
+          "ip-10-0-1-117.ec2.internal:9094",
         ],
       },
       consumer: {
