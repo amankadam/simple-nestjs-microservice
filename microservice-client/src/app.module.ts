@@ -12,11 +12,7 @@ import { Transport, ClientsModule } from "@nestjs/microservices";
         options: {
           client: {
             clientId: "hero",
-            brokers: [
-              "b-3.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
-              "b-2.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
-              "b-1.demo.ltcml0.c6.kafka.us-east-1.amazonaws.com:9092",
-            ],
+            brokers: ["localhost:9092"],
           },
           consumer: {
             groupId: "hero-consumer",
